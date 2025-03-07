@@ -1,3 +1,38 @@
+obj = {
+    title: 'foo',
+    body: 'bar',
+    userId: 1,
+}
+
+
+function postData(){
+    fetch('https://jsonplaceholder.typicode.com/posts',{
+        method : 'POST',
+        body : JSON.stringify(obj),
+        headers : {
+            'content-type' : 'application/json; charset=UTF-8', 
+        }
+    }).then((response)=>{return response.json()}).then((data)=>{alert(`Dummy Data Uploaded : ${data.title}, ${data.body}, ${data.userId}`)});
+}
+
+// following code is for updating existig data
+
+//     fetch('https://jsonplaceholder.typicode.com/posts',{
+//         method : 'PUT',
+//         body : JSON.stringify(obj),
+//         headers : {
+//             'content-type' : 'application/json; charset=UTF-8', 
+//         }
+//     }).then((response)=>{return response.json()}).then((data)=>{alert(`Dummy Data Uploaded : ${data.title}, ${data.body}, ${data.userId}`)});
+
+
+
+// following code is for Deleting existig data
+
+//     fetch('here goes the path of data which needs to be deleted',{
+//         method : 'DELETE',
+//     })
+
 function fetchData(){
     document.getElementById("statusText").innerText = "Fetching data...";
     fetch('https://jsonplaceholder.typicode.com/users')
